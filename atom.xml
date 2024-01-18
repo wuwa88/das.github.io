@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>不甚了了</title>
   
-  <subtitle>赠卫八处士 · 杜甫</subtitle>
+  <subtitle>经乱离后天恩流夜郎忆旧游书怀赠江夏韦太守良宰</subtitle>
   <link href="https://262617.xyz/atom.xml" rel="self"/>
   
   <link href="https://262617.xyz/"/>
-  <updated>2024-01-10T07:22:31.055Z</updated>
+  <updated>2024-01-18T07:00:23.754Z</updated>
   <id>https://262617.xyz/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用VSCODE远程服务器</title>
+    <link href="https://262617.xyz/20240118/shi-yong-vscode-yuan-cheng-fu-wu-qi/"/>
+    <id>https://262617.xyz/20240118/shi-yong-vscode-yuan-cheng-fu-wu-qi/</id>
+    <published>2024-01-18T06:18:15.000Z</published>
+    <updated>2024-01-18T07:00:23.754Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="使用VSCODE远程CENTOS7服务器"><a href="#使用VSCODE远程CENTOS7服务器" class="headerlink" title="使用VSCODE远程CENTOS7服务器"></a>使用VSCODE远程CENTOS7服务器</h1><h2 id="Liunx安装openssh服务器"><a href="#Liunx安装openssh服务器" class="headerlink" title="Liunx安装openssh服务器"></a>Liunx安装openssh服务器</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 安装openssh-server</span>yum <span class="token parameter variable">-y</span> <span class="token function">install</span> openssh-server<span class="token comment"># 重启openssh-server</span>systemctl restart sshd <span class="token comment">#restart/start/stop分别是重启/启动/停止</span><span class="token comment"># 设置为开机自启</span>systemctl <span class="token builtin class-name">enable</span> sshd<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="安装Remote-SSH插件"><a href="#安装Remote-SSH插件" class="headerlink" title="安装Remote - SSH插件"></a>安装Remote - SSH插件</h2><p>打开VsCode，在插件商店中搜索并安装Remote - SSH插件</p><p><img src="https://gcore.jsdelivr.net/gh/chauity/xximgxx/24-imgs/20240118142732.png" alt="20240118142732"></p><h2 id="配置SSH连接"><a href="#配置SSH连接" class="headerlink" title="配置SSH连接"></a>配置SSH连接</h2><p><img src="https://gcore.jsdelivr.net/gh/chauity/xximgxx/24-imgs/image.png.png" alt="image.png"></p><p><img src="https://gcore.jsdelivr.net/gh/chauity/xximgxx/24-imgs/20240118142949.png" alt="20240118142949"></p><p>在上图输入如下命令：</p><p>ID地址可以通过<code>ifconfig</code>命令获取</p><pre class="line-numbers language-ssh" data-language="ssh"><code class="language-ssh">ssh root@192.168.1.100 # root是登录用户名，192.168.1.100是服务器IP地址<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p><img src="https://gcore.jsdelivr.net/gh/chauity/xximgxx/24-imgs/20240118143306.png" alt="20240118143306"></p><p>刷新<code>VSCode</code>,这样左边<code>远程资源管理器</code>就出现了远程服务器的内容了</p><p><img src="https://gcore.jsdelivr.net/gh/chauity/xximgxx/24-imgs/20240118143753.png" alt="20240118143753"></p><h2 id="免密登录"><a href="#免密登录" class="headerlink" title="免密登录"></a>免密登录</h2><h3 id="在Windows系统生成SSH密钥对"><a href="#在Windows系统生成SSH密钥对" class="headerlink" title="在Windows系统生成SSH密钥对"></a>在<code>Windows</code>系统生成<code>SSH</code>密钥对</h3><pre class="line-numbers language-ssh" data-language="ssh"><code class="language-ssh">ssh-keygen<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p><img src="https://gcore.jsdelivr.net/gh/chauity/xximgxx/24-imgs/20240118144202.png" alt="20240118144202"> </p><blockquote><p><code>Windows</code>系统密钥对存储位置一般是<code>C:\Users\你的用户名\.ssh</code>，找到公钥位置,公钥名为<code>id_rsa.pub</code></p></blockquote><h3 id="将公钥内容复制到远程服务器的-ssh-authorized-keys文件中"><a href="#将公钥内容复制到远程服务器的-ssh-authorized-keys文件中" class="headerlink" title="将公钥内容复制到远程服务器的~/.ssh/authorized_keys文件中"></a>将公钥内容复制到远程服务器的<code>~/.ssh/authorized_keys</code>文件中</h3><pre class="line-numbers language-ssh" data-language="ssh"><code class="language-ssh"># 安装lrzsz远程文件服务yum -y install lrzszrz -y #上传你的公钥到远程服务器cat id _rsa.pub &gt;&gt; ~&#x2F;.ssh&#x2F;authorized_keys<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><p>也可以直接复制粘贴文件内容</p><h3 id="配置VSCode远程文件位置"><a href="#配置VSCode远程文件位置" class="headerlink" title="配置VSCode远程文件位置"></a>配置<code>VSCode</code>远程文件位置</h3><p><img src="https://gcore.jsdelivr.net/gh/chauity/xximgxx/24-imgs/20240118145151.png" alt="20240118145151"></p><p>增加远程文件配置</p><pre class="line-numbers language-none"><code class="language-none">IdentityFile &quot;C:\Users\zhiQ\.ssh\id_rsa&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p><img src="https://gcore.jsdelivr.net/gh/chauity/xximgxx/24-imgs/20240118145224.png" alt="20240118145224"></p><p>这样就实现远程免密登录了</p><p><img src="https://gcore.jsdelivr.net/gh/chauity/xximgxx/24-imgs/20240118150017.png" alt="20240118150017"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;使用VSCODE远程CENTOS7服务器&quot;&gt;&lt;a href=&quot;#使用VSCODE远程CENTOS7服务器&quot; class=&quot;headerlink&quot; title=&quot;使用VSCODE远程CENTOS7服务器&quot;&gt;&lt;/a&gt;使用VSCODE远程CENTOS7服务器&lt;/h1&gt;&lt;</summary>
+      
+    
+    
+    
+    <category term="remote ssh + vscode" scheme="https://262617.xyz/categories/remote-ssh-vscode/"/>
+    
+    
+    <category term="remote ssh + vscode" scheme="https://262617.xyz/tags/remote-ssh-vscode/"/>
+    
+  </entry>
   
   <entry>
     <title>套接字(Socket)---网络编程</title>
