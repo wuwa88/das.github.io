@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="套接字(Socket)---网络编程, 不甚了了">
+    <meta name="keywords" content="开始学习C++, 不甚了了">
     <meta name="description" content="李白">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>套接字(Socket)---网络编程 | 不甚了了</title>
+    <title>开始学习C++ | 不甚了了</title>
     <link rel="icon" type="image/png" href="https://gcore.jsdelivr.net/gh/chauity/images/logo/logo.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -511,12 +511,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://gcore.jsdelivr.net/gh/chauity/xximgxx/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://gcore.jsdelivr.net/gh/chauity/xximgxx/featureimages/15.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">套接字(Socket)---网络编程</h1>
+                    <h1 class="description center-align post-title">开始学习C++</h1>
                 </div>
             </div>
         </div>
@@ -633,14 +633,23 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/socket-c/">
-                                <span class="chip bg-color">socket, c++</span>
+                            <a href="/tags/C-Primer-PLUS-6/">
+                                <span class="chip bg-color">C++ Primer PLUS 6</span>
                             </a>
                         
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/C-Primer-PLUS-6/" class="post-category">
+                                C++ Primer PLUS 6
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -649,28 +658,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2024-01-17
+                    2024-01-19
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-01-10
+                    2024-01-19
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.4k
+                    218
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    9 分
+                    1 分
                 </div>
                 
 
@@ -693,253 +702,35 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="C-套接字网络编程"><a href="#C-套接字网络编程" class="headerlink" title="C++套接字网络编程"></a>C++套接字网络编程</h1><h2 id="OSI、TCP-IP-架构"><a href="#OSI、TCP-IP-架构" class="headerlink" title="OSI、TCP&#x2F;IP 架构"></a>OSI、TCP&#x2F;IP 架构</h2><p>了解计算机网络后(不了解也行)，你应该也必须知道OSI七层网络模型和TCP&#x2F;IP五层模型。在大学时候，老师们都会叫我们背这些东西，苦不堪言。最后也还是会忘掉，我们应该是学会理解它们之间的关系，而不用记住。</p>
-<p>首先粘出图片<br><img src="https://gcore.jsdelivr.net/gh/chauity/images/blog/pictures/20221112111602.png" alt="20221112111602"></p>
-<p>这就是他们对应的关系，<code>OSI模型</code>分的太细，不是我们要考虑的东西，只用知道上三层对应 <code>TCP/IP模型</code>的应用层，下两层对应 <code>TCP/IP模型</code>的网络接口层。作为Socket编程，我们处理的就是中间的传输层和网际层的东西。</p>
-<p>需要知道TCP、UDP在同一层（传输层）</p>
-<p>IP在（网际层）</p>
-<h3 id="TCP-Transmission-Control-Protocol-协议"><a href="#TCP-Transmission-Control-Protocol-协议" class="headerlink" title="TCP(Transmission Control Protocol)协议"></a>TCP(Transmission Control Protocol)协议</h3><p>对于初学者就需要知道它是可靠的、面向连接的协议就行了。连接需要三次握手、断开需要四次挥手。</p>
-<p>建立连接 &#x3D;&gt; 三次握手：</p>
-<p>三次握手就好比，</p>
-<p>面试官邀请你去面试的场景：</p>
-<p>第一次：（面试官）：您好，您的简历挺不错，明天来面试吗？</p>
-<p>第二次：（你）：好的，明天我有时间，明天能来。</p>
-<p>第三次：（面试官）：那好你就明天来面试吧。</p>
-<p>这是三次握手的图解：</p>
-<p><img src="https://gcore.jsdelivr.net/gh/chauity/images/blog/pictures/20221112113033.png" alt="20221112113033"></p>
-<p>如上图，TCP是双向连接的分为客户端和服务器。就像我们平时使用 <code>Chrome浏览器</code>，它就是一个客户端，服务器是各个网站自己家的，我们就不知道了。</p>
-<p>第一次:客户端发送SYN报文，请求同步，并发送序列号Seq为 X。</p>
-<pre><code>SYN是单词`synchronize`的简写，意为 同步 。就是请求同步的意思。
+                <h1 id="进入C"><a href="#进入C" class="headerlink" title="进入C++"></a>进入C++</h1><p><strong>程序清单2.1 myfirst.cpp</strong></p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;&#x2F; myfirst.cpp -- displays a message
 
-Seq就是一个序列号。也是单词简写`sequence`。
-</code></pre>
-<p>第二次：服务器收到客户端的SYN报文后，确认要同步。就向客户端发送SYN报文，这个报文和客户端发来的一样，顺带一个ACK报文，ACK报文号是客户端发来的Seq序列号+1，同时附带自己的Seq序列号。</p>
-<pre><code>ACK是单词`acknowledge`的缩写，意为 确认 。即收到同步请求，确认同步。
-</code></pre>
-<p>第三次：客户端再次发送ACK确认报文，报文号是服务端第二次握手发来的Seq序列号+1，并发送序列号。</p>
-<pre><code>每次都要发送序列号，就是确保连接是正确的，因此TCP是面向连接的，可靠的协议。
-问：那为什么不四次握手建立连接呢？
-答：其实也可以四次握手建立连接，只是会浪费带宽。而三次握手是必要的。
-</code></pre>
-<p>断开连接 &#x3D;&gt; 四次挥手：</p>
-<p>四次挥手就好比，</p>
-<p>你拒绝去面试的场景：</p>
-<p>第一次：（你）：您好，我明天有约了，就不能来面试了。</p>
-<p>第二次：（面试官）：好的，这边收到您不来面试了？</p>
-<p>第三次：（面试官）：您这边明天确定不来了吗？</p>
-<p>第四次：（你）：是的，我不来了。</p>
-<p>emmm~~  现实中面试官肯定不会第三次，还问你是不是不去。但这是计算机断开连接需要的处理。</p>
-<p><img src="https://gcore.jsdelivr.net/gh/chauity/images/blog/pictures/20221112112859.png" alt="20221112112859"></p>
-<p>四次挥手：如上图所示</p>
-<p>第一次：客户端要求断开本次连接。向服务器发送 FIN 报文，并携带序列号Seq。</p>
-<p>第二次：服务器确认断开连接，发送 ACK 报文，序列号是第一次挥手时序列号+1。</p>
-<p>第三次：服务器向客户端发送断开 FIN 报文，并携带序列号。</p>
-<p>第四次：客户端确认断开连接，发送 ACK 报文，序列号是第三次挥手时序列号+1。</p>
-<pre><code>就是一来一回的发送报文，以确定真的要断开连接。
-</code></pre>
-<h3 id="UDP-User-Datagram-Protocol-协议"><a href="#UDP-User-Datagram-Protocol-协议" class="headerlink" title="UDP(User Datagram Protocol) 协议"></a>UDP(User Datagram Protocol) 协议</h3><p>UDP就不像TCP那样要确认后在发包，它是只管发包,不管你收没收到。这样做的优点就是传输速度快，无情的发包机器。</p>
-<p>学习UDP要了解其报文构成</p>
-<p><img src="https://gcore.jsdelivr.net/gh/chauity/images/blog/pictures/20221112142029.png" alt="20221112142029"></p>
-<p>如上图，UDP由首部字段和数据字段组成。</p>
-<p>首部字段分为<code>源端口号</code>、<code>目的端口号</code>、<code>长度</code>以及<code>校验码</code>都是2个字节（16比特）。</p>
-<p><code>源端口号</code>和<code>目的端口号</code>很好理解就是发送方和接收方的端口号。</p>
-<p><code>长度</code>就是UDP数据报的长度。</p>
-<p>校验和的作用是检验发送是否出错，出错就丢弃。</p>
-<h3 id="IP协议"><a href="#IP协议" class="headerlink" title="IP协议"></a>IP协议</h3><p>所谓IP就是一段数字，大家肯定都知道。比如<a target="_blank" rel="noopener" href="http://www.baidu.com,这是百度的网址,也可以叫做url(统一资源定位符),你叫它域名也是一样的.dns(domain/">www.baidu.com,这是百度的网址，也可以叫做URL（统一资源定位符），你叫它域名也是一样的。DNS（Domain</a> Name System），即是域名系统。在网上搜索<code>域名解析查询</code>。输入百度网站的域名，就能解析出一个形如<code>14.215.177.38</code>的数字。这就是IP。</p>
-<p>其中的每一个数字实际上是一个8个的二进制组成的数字，计算机用1比特来存其中的一个数字，总共需要32比特，也就是4个字节数。这也是ip的大小。</p>
-<h2 id="Socket"><a href="#Socket" class="headerlink" title="Socket"></a>Socket</h2><h3 id="socket编程的概念"><a href="#socket编程的概念" class="headerlink" title="socket编程的概念"></a>socket编程的概念</h3><p><code>socket</code>就是插座(中文翻译套接字)，运行在计算机中的两个程序通过 <code>socket</code><br>建立一个通道，数据在通道中运输。</p>
-<p><code>socket</code>把复杂的TCP&#x2F;IP协议族隐藏了起来，对程序员来说，只要用好 socket相关的函数，就可以完成网络通信。</p>
-<h3 id="socket的分类"><a href="#socket的分类" class="headerlink" title="socket的分类"></a>socket的分类</h3><p><code>socket</code>提供了流（stream）和数据报（datagram）两种通信机制，即 <code>流socket</code>和 <code>数据报socket</code>。</p>
-<p><code>流socket</code>基于 <code>TCP协议</code>，是一个有序、可靠、双向字节流的通道，传输数据数据不会丢失、不会重复、顺序也不会错乱。</p>
-<p><code>数据报socket</code>基于UDP协议，不需要建立和维持连接，可能会丢失或错乱。UDP不是一个可靠的协议，对数据的长度有限制，但是它的效率比较高。</p>
-<p>某些应用层协议，处于历史原因，受当时技术和网络条件限制，选择了基于UDP是实现，其选择的理由很可能现在已经不成立了。</p>
-<p>实时的音视频聊天可能采用的是 <code>UDP</code>，这种业务可以接受数据的丢失且不必重传。</p>
-<p>本专题只介绍 <code>流socket</code>,<code>数据包socket</code>的应用场景实在太少，以后可能更少。</p>
-<h3 id="客户端-服务端模式"><a href="#客户端-服务端模式" class="headerlink" title="客户端&#x2F;服务端模式"></a>客户端&#x2F;服务端模式</h3><p>在 <code>TCP/IP</code>网络应用中，两个程序之间通信模式是客户端&#x2F;服务端模式（client&#x2F;server）。</p>
-<p><img src="https://gcore.jsdelivr.net/gh/chauity/images/blog/pictrues/20191225154007754.png" alt="img"></p>
-<h3 id="CPP-网络编程的示例代码"><a href="#CPP-网络编程的示例代码" class="headerlink" title="CPP 网络编程的示例代码"></a>CPP 网络编程的示例代码</h3><p>相关函数</p>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">
- <span class="token comment">//服务端</span>
-<span class="token function">socket</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token function">bind</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token function">listen</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token function">accept</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token function">read</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 或 <span class="token function">recv</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 等
-<span class="token function">write</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 或 <span class="token function">send</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 等
-<span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-
-<span class="token comment">//客户端</span>
-<span class="token function">socket</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token function">connect</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token function">read</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 或 <span class="token function">recv</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 等
-<span class="token function">write</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 或 <span class="token function">send</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 等
-<span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p><code>TCP Stream Socket</code> 代码：</p>
-<p>服务器代码：</p>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;WinSock2.h></span></span>
-
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">pragma</span> <span class="token expression"><span class="token function">comment</span><span class="token punctuation">(</span>lib<span class="token punctuation">,</span> </span><span class="token string">"ws2_32.lib"</span><span class="token expression"><span class="token punctuation">)</span></span></span>
-
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-
-	<span class="token comment">// 1.初始化套接字库</span>
-	WORD wVersion<span class="token punctuation">;</span>
-	WSADATA wsaData<span class="token punctuation">;</span>
-	<span class="token keyword">int</span> err<span class="token punctuation">;</span>
-
-	<span class="token comment">// 设置版本，可以理解为1.1</span>
-	wVersion <span class="token operator">=</span> <span class="token function">MAKEWORD</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>	<span class="token comment">// 例：MAKEWORD(a, b) --> b | a &lt;&lt; 8 将a左移8位变成高位与b合并起来</span>
-
-	<span class="token comment">// 启动</span>
-	err <span class="token operator">=</span> <span class="token function">WSAStartup</span><span class="token punctuation">(</span>wVersion<span class="token punctuation">,</span> <span class="token operator">&amp;</span>wsaData<span class="token punctuation">)</span><span class="token punctuation">;</span>
-	<span class="token keyword">if</span> <span class="token punctuation">(</span>err <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-		<span class="token keyword">return</span> err<span class="token punctuation">;</span>
-	<span class="token punctuation">&#125;</span>
-	<span class="token comment">// 检查：网络低位不等于1 || 网络高位不等于1</span>
-	<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">LOBYTE</span><span class="token punctuation">(</span>wsaData<span class="token punctuation">.</span>wVersion<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">1</span> <span class="token operator">||</span> <span class="token function">HIBYTE</span><span class="token punctuation">(</span>wsaData<span class="token punctuation">.</span>wVersion<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-		<span class="token comment">// 清理套接字库</span>
-		<span class="token function">WSACleanup</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
-	<span class="token punctuation">&#125;</span>
-
-	<span class="token comment">// 2.创建tcp套接字		// AF_INET:ipv4   AF_INET6:ipv6</span>
-	SOCKET sockSrv <span class="token operator">=</span> <span class="token function">socket</span><span class="token punctuation">(</span>AF_INET<span class="token punctuation">,</span> SOCK_STREAM<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-	<span class="token comment">// 准备绑定信息</span>
-	SOCKADDR_IN addrSrv<span class="token punctuation">;</span>
-	addrSrv<span class="token punctuation">.</span>sin_addr<span class="token punctuation">.</span>S_un<span class="token punctuation">.</span>S_addr <span class="token operator">=</span> <span class="token function">htonl</span><span class="token punctuation">(</span>INADDR_ANY<span class="token punctuation">)</span><span class="token punctuation">;</span>	<span class="token comment">// 设置绑定网卡</span>
-	addrSrv<span class="token punctuation">.</span>sin_family <span class="token operator">=</span> AF_INET<span class="token punctuation">;</span>		<span class="token comment">// 设置绑定网络模式</span>
-	addrSrv<span class="token punctuation">.</span>sin_port <span class="token operator">=</span> <span class="token function">htons</span><span class="token punctuation">(</span><span class="token number">6000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>		<span class="token comment">// 设置绑定端口</span>
-	<span class="token comment">// hton: host to network  x86:小端    网络传输：htons大端</span>
-
-	<span class="token comment">// 3.绑定到本机</span>
-	<span class="token keyword">int</span> retVal <span class="token operator">=</span> <span class="token function">bind</span><span class="token punctuation">(</span>sockSrv<span class="token punctuation">,</span> <span class="token punctuation">(</span>SOCKADDR <span class="token operator">*</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>addrSrv<span class="token punctuation">,</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span>SOCKADDR<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	<span class="token keyword">if</span> <span class="token punctuation">(</span>retVal <span class="token operator">==</span> SOCKET_ERROR<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-		<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Failed bind:%d\n"</span><span class="token punctuation">,</span> <span class="token function">WSAGetLastError</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
-	<span class="token punctuation">&#125;</span>
-
-	<span class="token comment">// 4.监听，同时能接收10个链接</span>
-	<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">listen</span><span class="token punctuation">(</span>sockSrv<span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token operator">==</span> SOCKET_ERROR<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-		<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Listen failed:%d"</span><span class="token punctuation">,</span> <span class="token function">WSAGetLastError</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
-	<span class="token punctuation">&#125;</span>
-
-	std<span class="token double-colon punctuation">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Server start at port: 6000"</span> <span class="token operator">&lt;&lt;</span> std<span class="token double-colon punctuation">::</span>endl<span class="token punctuation">;</span>
-
-	SOCKADDR_IN addrCli<span class="token punctuation">;</span>
-	<span class="token keyword">int</span> len <span class="token operator">=</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span>SOCKADDR<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-	<span class="token keyword">char</span> recvBuf<span class="token punctuation">[</span><span class="token number">100</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-	<span class="token keyword">char</span> sendBuf<span class="token punctuation">[</span><span class="token number">100</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-	<span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-		<span class="token comment">// 5.接收连接请求，返回针对客户端的套接字</span>
-		SOCKET sockConn <span class="token operator">=</span> <span class="token function">accept</span><span class="token punctuation">(</span>sockSrv<span class="token punctuation">,</span> <span class="token punctuation">(</span>SOCKADDR <span class="token operator">*</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>addrCli<span class="token punctuation">,</span> <span class="token operator">&amp;</span>len<span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token keyword">if</span> <span class="token punctuation">(</span>sockConn <span class="token operator">==</span> SOCKET_ERROR<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-			<span class="token comment">//printf("Accept failed:%d", WSAGetLastError());</span>
-			std<span class="token double-colon punctuation">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Accept failed: "</span> <span class="token operator">&lt;&lt;</span> <span class="token function">WSAGetLastError</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> std<span class="token double-colon punctuation">::</span>endl<span class="token punctuation">;</span>
-			<span class="token keyword">break</span><span class="token punctuation">;</span>
-		<span class="token punctuation">&#125;</span>
-
-		<span class="token comment">//printf("Accept client IP:[%s]\n", inet_ntoa(addrCli.sin_addr));</span>
-		std<span class="token double-colon punctuation">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Accept client IP: "</span> <span class="token operator">&lt;&lt;</span> <span class="token function">inet_ntoa</span><span class="token punctuation">(</span>addrCli<span class="token punctuation">.</span>sin_addr<span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> std<span class="token double-colon punctuation">::</span>endl<span class="token punctuation">;</span>
-
-		<span class="token comment">// 6.发送数据</span>
-		<span class="token function">sprintf_s</span><span class="token punctuation">(</span>sendBuf<span class="token punctuation">,</span> <span class="token string">"hello client!\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token keyword">int</span> iSend <span class="token operator">=</span> <span class="token function">send</span><span class="token punctuation">(</span>sockConn<span class="token punctuation">,</span> sendBuf<span class="token punctuation">,</span> <span class="token function">strlen</span><span class="token punctuation">(</span>sendBuf<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token keyword">if</span> <span class="token punctuation">(</span>iSend <span class="token operator">==</span> SOCKET_ERROR<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-			std<span class="token double-colon punctuation">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"send failed!\n"</span><span class="token punctuation">;</span>
-			<span class="token keyword">break</span><span class="token punctuation">;</span>
-		<span class="token punctuation">&#125;</span>
-
-		<span class="token comment">// 7.接收数据</span>
-		<span class="token function">recv</span><span class="token punctuation">(</span>sockConn<span class="token punctuation">,</span> recvBuf<span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		std<span class="token double-colon punctuation">::</span>cout <span class="token operator">&lt;&lt;</span> recvBuf <span class="token operator">&lt;&lt;</span> std<span class="token double-colon punctuation">::</span>endl<span class="token punctuation">;</span>
-
-		<span class="token comment">// 关闭套接字</span>
-		<span class="token function">closesocket</span><span class="token punctuation">(</span>sockConn<span class="token punctuation">)</span><span class="token punctuation">;</span>
-	<span class="token punctuation">&#125;</span>
-
-	<span class="token comment">// 8.关闭套接字</span>
-	<span class="token function">closesocket</span><span class="token punctuation">(</span>sockSrv<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-	<span class="token comment">// 9.清理套接字库</span>
-	<span class="token function">WSACleanup</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>    <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>客户端代码：</p>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;WinSock2.h></span></span>
-
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">pragma</span> <span class="token expression"><span class="token function">comment</span><span class="token punctuation">(</span>lib<span class="token punctuation">,</span> </span><span class="token string">"ws2_32.lib"</span><span class="token expression"><span class="token punctuation">)</span></span></span>
-
-
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-
-	<span class="token comment">// 1.初始化套接字库</span>
-	WORD wVersion<span class="token punctuation">;</span>
-	WSADATA wsaData<span class="token punctuation">;</span>
-	<span class="token keyword">int</span> err<span class="token punctuation">;</span>
-
-	<span class="token comment">// 可以理解为1.1</span>
-	wVersion <span class="token operator">=</span> <span class="token function">MAKEWORD</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>	<span class="token comment">// 例：MAKEWORD(a, b) --> b | a &lt;&lt; 8 将a左移8位变成高位与b合并起来</span>
-
-	<span class="token comment">// 启动</span>
-	err <span class="token operator">=</span> <span class="token function">WSAStartup</span><span class="token punctuation">(</span>wVersion<span class="token punctuation">,</span> <span class="token operator">&amp;</span>wsaData<span class="token punctuation">)</span><span class="token punctuation">;</span>
-	<span class="token keyword">if</span> <span class="token punctuation">(</span>err <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-		<span class="token keyword">return</span> err<span class="token punctuation">;</span>
-	<span class="token punctuation">&#125;</span>
-	<span class="token comment">// 检查：网络地位不等于1 || 网络高位不等于1</span>
-	<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">LOBYTE</span><span class="token punctuation">(</span>wsaData<span class="token punctuation">.</span>wVersion<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">1</span> <span class="token operator">||</span> <span class="token function">HIBYTE</span><span class="token punctuation">(</span>wsaData<span class="token punctuation">.</span>wVersion<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-		<span class="token comment">// 清理套接字库</span>
-		<span class="token function">WSACleanup</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
-	<span class="token punctuation">&#125;</span>
-
-	<span class="token comment">// 创建TCP套接字</span>
-	SOCKET sockCli <span class="token operator">=</span> <span class="token function">socket</span><span class="token punctuation">(</span>AF_INET<span class="token punctuation">,</span> SOCK_STREAM<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-	SOCKADDR_IN addrSrv<span class="token punctuation">;</span>
-	addrSrv<span class="token punctuation">.</span>sin_addr<span class="token punctuation">.</span>S_un<span class="token punctuation">.</span>S_addr <span class="token operator">=</span> <span class="token function">inet_addr</span><span class="token punctuation">(</span><span class="token string">"127.0.0.1"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>	<span class="token comment">// 服务器地址</span>
-	addrSrv<span class="token punctuation">.</span>sin_port <span class="token operator">=</span> <span class="token function">htons</span><span class="token punctuation">(</span><span class="token number">6000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>		<span class="token comment">// 端口号</span>
-	addrSrv<span class="token punctuation">.</span>sin_family <span class="token operator">=</span> AF_INET<span class="token punctuation">;</span>		<span class="token comment">// 地址类型(ipv4)</span>
-
-	<span class="token comment">// 2.连接服务器</span>
-	<span class="token keyword">int</span> err_log <span class="token operator">=</span> <span class="token function">connect</span><span class="token punctuation">(</span>sockCli<span class="token punctuation">,</span> <span class="token punctuation">(</span>SOCKADDR <span class="token operator">*</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>addrSrv<span class="token punctuation">,</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span>SOCKADDR<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	<span class="token keyword">if</span> <span class="token punctuation">(</span>err_log <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-		<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"连接服务器成功！\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	
-	<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
-		<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"连接服务器失败！\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
-	<span class="token punctuation">&#125;</span>
-
-	<span class="token keyword">char</span> recvBuf<span class="token punctuation">[</span><span class="token number">100</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-	<span class="token keyword">char</span> sendBuf<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"你好，服务器，我是客户端！"</span><span class="token punctuation">;</span>
-	<span class="token comment">// 3.发送数据到服务器</span>
-	<span class="token function">send</span><span class="token punctuation">(</span>sockCli<span class="token punctuation">,</span> sendBuf<span class="token punctuation">,</span> <span class="token function">strlen</span><span class="token punctuation">(</span>sendBuf<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-	<span class="token comment">// 4.接收服务器的数据</span>
-	<span class="token function">recv</span><span class="token punctuation">(</span>sockCli<span class="token punctuation">,</span> recvBuf<span class="token punctuation">,</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span>recvBuf<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	std<span class="token double-colon punctuation">::</span>cout <span class="token operator">&lt;&lt;</span> recvBuf <span class="token operator">&lt;&lt;</span> std<span class="token double-colon punctuation">::</span>endl<span class="token punctuation">;</span>
-
-
-	<span class="token comment">// 5.关闭套接字并清除套接字库</span>
-	<span class="token function">closesocket</span><span class="token punctuation">(</span>sockCli<span class="token punctuation">)</span><span class="token punctuation">;</span>
-	<span class="token function">WSACleanup</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-	<span class="token function">system</span><span class="token punctuation">(</span><span class="token string">"pause"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
+#include &lt;iostream&gt;
+int main(void)
+&#123;
+  using namespace std;
+  cout &lt;&lt; &quot;Come up and C++ me some time.&quot; &lt;&lt; endl;
+  cout &lt;&lt; &quot;\nYou won&#39;t regret it!&quot; &lt;&lt; endl;
+  return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="main-函数"><a href="#main-函数" class="headerlink" title="main()函数"></a>main()函数</h2><p>去掉修饰后，程序清单2.1的实例代码如下</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+  statements
+  <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>第一行<code>int main()</code>叫函数头(function heading),花括号<code>&#123;&#125;</code>中包括的部分叫函数体。main()中最后一条语句叫做返回语句(return statement),返回值的类型和函数头的修饰一致如<code>int</code>返回的是整数类型,它是函数的结束。</p>
+<ul>
+<li>语句和分号<blockquote>
+<p>语句是执行的操作，每一条语句都要有结束，C++中以分号[<code>;</code>]结束语句且C++中不能省略分号。</p>
+</blockquote>
+</li>
+<li>作为接口的函数头<blockquote>
+<p>函数</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="C-注释"><a href="#C-注释" class="headerlink" title="C++注释"></a>C++注释</h2>
                 
             </div>
             <hr/>
@@ -965,7 +756,7 @@ Seq就是一个序列号。也是单词简写`sequence`。
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://262617.xyz/20240117/wang-luo-bian-cheng/">https://262617.xyz/20240117/wang-luo-bian-cheng/</a>
+                    <a href="https://262617.xyz/20240119/kai-shi-xue-xi-c/">https://262617.xyz/20240119/kai-shi-xue-xi-c/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1003,8 +794,8 @@ Seq就是一个序列号。也是单词简写`sequence`。
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/socket-c/">
-                                    <span class="chip bg-color">socket, c++</span>
+                                <a href="/tags/C-Primer-PLUS-6/">
+                                    <span class="chip bg-color">C++ Primer PLUS 6</span>
                                 </a>
                             
                         </div>
@@ -1177,75 +968,76 @@ Seq就是一个序列号。也是单词简写`sequence`。
     <article id="prenext-posts" class="prev-next articles">
         <div class="row article-row">
             
-                <div class="article col s12 m6" data-aos="fade-up">
-                    <div class="article-badge left-badge text-color">
-                        <i class="fas fa-chevron-left"></i>&nbsp;上一篇
-                    </div>
-                    <div class="card">
-                        <a href="/20240118/shi-yong-vscode-yuan-cheng-fu-wu-qi/">
-                            <div class="card-image">
-                                
-                                        
-                                            <img src="https://gcore.jsdelivr.net/gh/chauity/xximgxx/featureimages/22.jpg"
-                                                class="responsive-img" alt="使用VSCODE远程服务器">
-                                            
-                                                <span class="card-title">
-                                                    使用VSCODE远程服务器
-                                                </span>
-                            </div>
-                        </a>
-                        <div class="card-content article-content">
-                            <div class="summary block-with-text">
-                                
-                                            
-                                                
-                            </div>
-                            <div class="publish-info">
-                                <span class="publish-date">
-                                    <i class="far fa-clock fa-fw icon-date"></i>
-                                    2024-01-18
-                                </span>
-                                <span class="publish-author">
-                                    
-                                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                        
-                                            <a href="/categories/remote-ssh-vscode/" class="post-category">
-                                                remote ssh + vscode
-                                            </a>
-                                            
-                                                
-                                </span>
-                            </div>
+                    <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+                        <div class="article-badge left-badge text-color">
+                            <i class="far fa-dot-circle"></i>&nbsp;本篇
                         </div>
-                        
-                            <div class="card-action article-tags">
-                                
-                                    <a href="/tags/remote-ssh-vscode/">
-                                        <span class="chip bg-color">
-                                            remote ssh + vscode
-                                        </span>
-                                    </a>
+                        <div class="card">
+                            <a href="/20240119/kai-shi-xue-xi-c/">
+                                <div class="card-image">
                                     
+                                            
+                                                <img src="https://gcore.jsdelivr.net/gh/chauity/xximgxx/featureimages/15.jpg"
+                                                    class="responsive-img" alt="开始学习C++">
+                                                
+                                                    <span class="card-title">
+                                                        开始学习C++
+                                                    </span>
+                                </div>
+                            </a>
+                            <div class="card-content article-content">
+                                <div class="summary block-with-text">
+                                    
+                                                
+                                                    
+                                </div>
+                                <div class="publish-info">
+                                    <span class="publish-date">
+                                        <i class="far fa-clock fa-fw icon-date"></i>
+                                        2024-01-19
+                                    </span>
+                                    <span class="publish-author">
+                                        
+                                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                            
+                                                <a href="/categories/C-Primer-PLUS-6/" class="post-category">
+                                                    C++ Primer PLUS 6
+                                                </a>
+                                                
+                                                    
+                                    </span>
+                                </div>
                             </div>
+
                             
+                                <div class="card-action article-tags">
+                                    
+                                        <a href="/tags/C-Primer-PLUS-6/">
+                                            <span class="chip bg-color">
+                                                C++ Primer PLUS 6
+                                            </span>
+                                        </a>
+                                        
+                                </div>
+                                
+                        </div>
                     </div>
-                </div>
-                
+                    
                         
                             <div class="article col s12 m6" data-aos="fade-up">
                                 <div class="article-badge right-badge text-color">
                                     下一篇&nbsp;<i class="fas fa-chevron-right"></i>
                                 </div>
                                 <div class="card">
-                                    <a href="/20240105/cdn-tu-chuang/">
+                                    <a href="/20240118/shi-yong-vscode-yuan-cheng-fu-wu-qi/">
                                         <div class="card-image">
                                             
                                                     
-                                                        <img src="https://gcore.jsdelivr.net/gh/chauity/xximgxx/featureimages/33.jpg"
-                                                            class="responsive-img" alt="免费图床CDN加速">
+                                                        <img src="https://gcore.jsdelivr.net/gh/chauity/xximgxx/featureimages/22.jpg"
+                                                            class="responsive-img" alt="使用VSCODE远程服务器">
                                                         
                                                             <span class="card-title">
-                                                                免费图床CDN加速
+                                                                使用VSCODE远程服务器
                                                             </span>
                                         </div>
                                     </a>
@@ -1258,14 +1050,14 @@ Seq就是一个序列号。也是单词简写`sequence`。
                                         <div class="publish-info">
                                             <span class="publish-date">
                                                 <i class="far fa-clock fa-fw icon-date"></i>
-                                                2024-01-05
+                                                2024-01-18
                                             </span>
                                             <span class="publish-author">
                                                 
                                                     <i class="fas fa-bookmark fa-fw icon-category"></i>
                                                     
-                                                        <a href="/categories/jsDilivr-pic/" class="post-category">
-                                                            jsDilivr, pic
+                                                        <a href="/categories/remote-ssh-vscode/" class="post-category">
+                                                            remote ssh + vscode
                                                         </a>
                                                         
                                                             
@@ -1275,9 +1067,9 @@ Seq就是一个序列号。也是单词简写`sequence`。
                                     
                                         <div class="card-action article-tags">
                                             
-                                                <a href="/tags/%E5%9B%BE%E5%BA%8A-cdn-picgo/">
+                                                <a href="/tags/remote-ssh-vscode/">
                                                     <span class="chip bg-color">
-                                                        图床 + cdn + picgo
+                                                        remote ssh + vscode
                                                     </span>
                                                 </a>
                                                 

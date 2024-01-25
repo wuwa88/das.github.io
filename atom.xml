@@ -6,7 +6,7 @@
   <link href="https://262617.xyz/atom.xml" rel="self"/>
   
   <link href="https://262617.xyz/"/>
-  <updated>2024-01-18T07:00:23.754Z</updated>
+  <updated>2024-01-19T06:15:24.467Z</updated>
   <id>https://262617.xyz/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>开始学习C++</title>
+    <link href="https://262617.xyz/20240119/kai-shi-xue-xi-c/"/>
+    <id>https://262617.xyz/20240119/kai-shi-xue-xi-c/</id>
+    <published>2024-01-19T03:45:46.000Z</published>
+    <updated>2024-01-19T06:15:24.467Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="进入C"><a href="#进入C" class="headerlink" title="进入C++"></a>进入C++</h1><p><strong>程序清单2.1 myfirst.cpp</strong></p><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;&#x2F; myfirst.cpp -- displays a message#include &lt;iostream&gt;int main(void)&#123;  using namespace std;  cout &lt;&lt; &quot;Come up and C++ me some time.&quot; &lt;&lt; endl;  cout &lt;&lt; &quot;\nYou won&#39;t regret it!&quot; &lt;&lt; endl;  return 0;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="main-函数"><a href="#main-函数" class="headerlink" title="main()函数"></a>main()函数</h2><p>去掉修饰后，程序清单2.1的实例代码如下</p><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>  statements  <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>第一行<code>int main()</code>叫函数头(function heading),花括号<code>&#123;&#125;</code>中包括的部分叫函数体。main()中最后一条语句叫做返回语句(return statement),返回值的类型和函数头的修饰一致如<code>int</code>返回的是整数类型,它是函数的结束。</p><ul><li>语句和分号<blockquote><p>语句是执行的操作，每一条语句都要有结束，C++中以分号[<code>;</code>]结束语句且C++中不能省略分号。</p></blockquote></li><li>作为接口的函数头<blockquote><p>函数</p></blockquote></li></ul><h2 id="C-注释"><a href="#C-注释" class="headerlink" title="C++注释"></a>C++注释</h2>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;进入C&quot;&gt;&lt;a href=&quot;#进入C&quot; class=&quot;headerlink&quot; title=&quot;进入C++&quot;&gt;&lt;/a&gt;进入C++&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;程序清单2.1 myfirst.cpp&lt;/strong&gt;&lt;/p&gt;
+&lt;pre class=&quot;line-numb</summary>
+      
+    
+    
+    
+    <category term="C++ Primer PLUS 6" scheme="https://262617.xyz/categories/C-Primer-PLUS-6/"/>
+    
+    
+    <category term="C++ Primer PLUS 6" scheme="https://262617.xyz/tags/C-Primer-PLUS-6/"/>
+    
+  </entry>
   
   <entry>
     <title>使用VSCODE远程服务器</title>
@@ -204,9 +229,9 @@
     <link href="https://262617.xyz/20221103/wang-zhan-jia-su/"/>
     <id>https://262617.xyz/20221103/wang-zhan-jia-su/</id>
     <published>2022-11-03T08:59:59.000Z</published>
-    <updated>2024-01-17T02:50:32.011Z</updated>
+    <updated>2024-01-25T02:41:30.322Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><ul><li>由于<code>Hexo</code>网站是部署在<code>GitHub</code>上，国内访问速度很慢，需要加速访问</li></ul><h1 id="方案"><a href="#方案" class="headerlink" title="方案"></a>方案</h1><ul><li>使用<code>hexo-offline-popup</code>插件加速</li></ul><h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ul><li><code>Hexo</code>根目录安装<code>hexo-offline-popup</code>插件</li></ul><pre class="line-numbers language-npm" data-language="npm"><code class="language-npm">npm i -S hexo-offline-popup<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><ul><li>配置<code>Hexo</code>根目录的文件<code>_config.yml</code></li></ul><pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">service_worker</span><span class="token punctuation">:</span>  <span class="token key atrule">maximumFileSizeToCacheInBytes</span><span class="token punctuation">:</span> <span class="token number">5242880</span>  <span class="token key atrule">staticFileGlobs</span><span class="token punctuation">:</span>  <span class="token punctuation">-</span> public/<span class="token important">**/*.</span><span class="token punctuation">&#123;</span>js<span class="token punctuation">,</span>html<span class="token punctuation">,</span>css<span class="token punctuation">,</span>png<span class="token punctuation">,</span>jpg<span class="token punctuation">,</span>gif<span class="token punctuation">,</span>svg<span class="token punctuation">,</span>eot<span class="token punctuation">,</span>ttf<span class="token punctuation">,</span>woff<span class="token punctuation">,</span>woff2<span class="token punctuation">&#125;</span>  <span class="token key atrule">stripPrefix</span><span class="token punctuation">:</span> public  <span class="token key atrule">verbose</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>  <span class="token comment">#runtimeCaching: # 有配置cdn资源(如jsdelivr)开启</span>  <span class="token comment">#  - urlPattern: /*</span>  <span class="token comment">#    handler: cacheFirst</span>  <span class="token comment">#    options:</span>  <span class="token comment">#      origin: cdn.jsdelivr.net</span>  <span class="token comment">#  - urlPattern: /*</span>  <span class="token comment">#    handler: cacheFirst</span>  <span class="token comment">#    options:</span>  <span class="token comment">#      origin: gcore.jsdelivr.net</span>  <span class="token comment">#  - urlPattern: /*</span>  <span class="token comment">#    handler: cacheFirst</span>  <span class="token comment">#    options:</span>  <span class="token comment">#      origin: fastly.jsdelivr.net</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><ul><li>部署<pre class="line-numbers language-cmd" data-language="cmd"><code class="language-cmd">hexo c &amp;&amp; hexo g &amp;&amp; hexo d<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li></ul>]]></content>
+    <content type="html"><![CDATA[<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><ul><li>由于<code>Hexo</code>网站是部署在<code>GitHub</code>上，国内访问速度很慢，需要加速访问</li></ul><h1 id="方案"><a href="#方案" class="headerlink" title="方案"></a>方案</h1><ul><li>使用<code>hexo-offline-popup</code>插件加速</li></ul><h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ul><li><code>Hexo</code>根目录安装<code>hexo-offline-popup</code>插件</li></ul><pre class="line-numbers language-npm" data-language="npm"><code class="language-npm">npm i -S hexo-offline-popup<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><ul><li>配置<code>Hexo</code>根目录的文件<code>_config.yml</code></li></ul><pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">service_worker</span><span class="token punctuation">:</span>  <span class="token key atrule">maximumFileSizeToCacheInBytes</span><span class="token punctuation">:</span> <span class="token number">5242880</span>  <span class="token key atrule">staticFileGlobs</span><span class="token punctuation">:</span>  <span class="token punctuation">-</span> public/<span class="token important">**/*.</span><span class="token punctuation">&#123;</span>js<span class="token punctuation">,</span>html<span class="token punctuation">,</span>css<span class="token punctuation">,</span>png<span class="token punctuation">,</span>jpg<span class="token punctuation">,</span>gif<span class="token punctuation">,</span>svg<span class="token punctuation">,</span>eot<span class="token punctuation">,</span>ttf<span class="token punctuation">,</span>woff<span class="token punctuation">,</span>woff2<span class="token punctuation">&#125;</span>  <span class="token key atrule">stripPrefix</span><span class="token punctuation">:</span> public  <span class="token key atrule">verbose</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>  <span class="token comment">#runtimeCaching: # 有配置cdn资源(如jsdelivr)开启</span>  <span class="token comment">#  - urlPattern: /npm/*</span>  <span class="token comment">#    handler: cacheFirst</span>  <span class="token comment">#    options:</span>  <span class="token comment">#      origin: cdn.jsdelivr.net</span>  <span class="token comment">#  - urlPattern: /npm/*</span>  <span class="token comment">#    handler: cacheFirst</span>  <span class="token comment">#    options:</span>  <span class="token comment">#      origin: gcore.jsdelivr.net</span>  <span class="token comment">#  - urlPattern: /npm/*</span>  <span class="token comment">#    handler: cacheFirst</span>  <span class="token comment">#    options:</span>  <span class="token comment">#      origin: fastly.jsdelivr.net</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><ul><li>部署<pre class="line-numbers language-cmd" data-language="cmd"><code class="language-cmd">hexo c &amp;&amp; hexo g &amp;&amp; hexo d<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li></ul>]]></content>
     
     
       
