@@ -298,7 +298,8 @@ header .brand-logo .logo-img {
 }
 
 header .brand-logo .logo-span {
-    font-size: 1.6rem;
+    font-size: 2rem;
+    font-family: '楷体';
 }
 
 /*修改顶部 logo 的文字垂直对齐为 top，避免默认 middle 看起来偏下*/
@@ -582,10 +583,11 @@ header .go-back i {
 }
 
 .bg-cover .title {
-    font-size: 4rem;
+    font-size: 4.1rem;
     line-height: 1.2em;
     margin-bottom: 20px;
     position: relative;
+    font-family: '楷体';
 }
 
 .bg-cover .description {
@@ -593,6 +595,7 @@ header .go-back i {
     font-size: 1.25rem;
     line-height: 1.4em;
     color: #eee;
+    font-family: '楷体';
 }
 
 .bg-cover .post-title {
@@ -713,11 +716,13 @@ header .go-back i {
     margin-bottom: 20px;
     font-size: 2rem;
     font-weight: 700;
+    font-family: "楷体";
 }
 
 .dream .text {
     opacity: .6;
-    font-size: 1.1rem;
+    font-size: 1.04rem;
+    font-family: '楷体';
 }
 
 .music-player,
